@@ -35,7 +35,7 @@ gapi.analytics.ready(function() {
     <div class="Dashboard Dashboard--full">
       <header class="Titles">
         <h3 class="Titles-main">Site Traffic</h3>
-        <div class="Titles-sub">Sessions vs. Users - last 15 days</div>
+        <div class="Titles-sub">Sessions vs. Users - 2 weeks ago</div>
       </header>
       <figure id="chart-1-container"></figure>
     </div>
@@ -85,7 +85,7 @@ gapi.analytics.ready(function() {
     query: {
       'ids': 'ga:164625064', // <-- Replace with the ids value for your view.
       'start-date': '2017-11-15',
-      'end-date': '2017-11-29',
+      'end-date': '2017-11-22',
       'filters': 'ga:landingPagePath==' + pathname,
       'metrics': 'ga:avgSessionDuration,ga:sessions',
       'dimensions': 'ga:date'
@@ -111,8 +111,8 @@ gapi.analytics.ready(function() {
       'ids': 'ga:164625064', // <-- Replace with the ids value for your view.
       'start-date': '2017-11-15',
       'end-date': '2017-11-29',
-      'filters': 'ga:landingPagePath=~newest',
-      'metrics': 'ga:sessions,ga:avgSessionDuration,ga:newUsers',
+      'filters': 'ga:landingPagePath==' + pathname,
+      'metrics': 'ga:sessions,ga:avgSessionDuration,ga:newUsers'
     }
   });
 
