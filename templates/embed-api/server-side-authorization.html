@@ -2,9 +2,9 @@
 
 {% block content %}
 <section>
-  <h2>Demo Overview</h2>
-  <p>{{ page.excerpt | safe }}</p>
-  <p>The charts below show usage data for the site you're visiting now, <a href="/">Google Analytics Demos & Tools</a>. Notice how you do not have to be logged in to see this data!</p>
+  <h2>DASHBOARD</h2>
+  <!--<p>{{ page.excerpt | safe }}</p>
+  <p>The charts below show usage data for the site you're visiting now, <a href="/">Google Analytics Demos & Tools</a>. Notice how you do not have to be logged in to see this data!</p>-->
 </section>
 
 <ul class="FlexGrid">
@@ -12,7 +12,7 @@
     <div class="Dashboard Dashboard--full">
       <header class="Titles">
         <h3 class="Titles-main">Site Traffic</h3>
-        <div class="Titles-sub">Sessions vs. Users - last 30 days</div>
+        <div class="Titles-sub">Sessions vs. Users - last 15 days</div>
       </header>
       <figure id="chart-1-container"></figure>
     </div>
@@ -20,15 +20,22 @@
   <li class="FlexGrid-item">
     <div class="Dashboard Dashboard--full">
       <header class="Titles">
-        <h3 class="Titles-main">Most Popular Demos/Tools</h3>
-        <div class="Titles-sub">Pageviews - last 30 days</div>
+        <h3 class="Titles-main">Total Views - last 15 days</h3>
       </header>
-      <figure id="chart-2-container"></figure>
+      <div id="chart-2-container">
+        <div class="Titles-sub">Sessions</div>
+      </div>
+      <div id="chart-2-container-1">
+        <div class="Titles-sub">Avg. Session Duration</div>
+      </div>
+      <div id="chart-2-container-2">
+        <div class="Titles-sub">New Users</div>
+      </div>
     </div>
   </li>
 </ul>
 
-<section>
+<!--<section>
 <h2>How it works</h2>
 
 <p>You can recreate the demo above by following the instructions and using the code below. If you want to know more, check out the <a href="https://developers.google.com/analytics/devguides/reporting/embed/">Embed API documentation</a> on our developers site.</p>
@@ -109,11 +116,11 @@ def get_access_token():
 {%- endfilter -%}
 </pre>
 
-</section>
+</section>-->
 {% endblock %}
 
 {% block tech_content %}
-  The {{ page.title }} demo uses the <code>DataChart</code> component of the <a href="{{ site.tech.embed_api.url }}">{{ site.tech.embed_api.name }}</a>, which queries the <a href="{{ site.tech.core_reporting_api.url }}">{{ site.tech.core_reporting_api.name }}</a> behind the scenes.
+  <!--The {{ page.title }} demo uses the <code>DataChart</code> component of the <a href="{{ site.tech.embed_api.url }}">{{ site.tech.embed_api.name }}</a>, which queries the <a href="{{ site.tech.core_reporting_api.url }}">{{ site.tech.core_reporting_api.name }}</a> behind the scenes.-->
 {% endblock %}
 {% block foot_scripts %}
 {{ super() }}

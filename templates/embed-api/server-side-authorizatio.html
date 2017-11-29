@@ -1,0 +1,131 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script>
+(function(w,d,s,g,js,fs){
+g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+js.src='https://apis.google.com/js/platform.js';
+fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+}(window,document,'script'));
+
+gapi.analytics.ready(function() {
+
+  // Authorize this user with the access token from the service account.
+  gapi.analytics.auth.authorize({
+    serverAuth: {
+      access_token: '{{ site.get_access_token() }}'
+    }
+  });
+
+  document.body.classList.add('is-authorized');
+});
+</script>
+</head>
+<body>
+<section>
+  <h2>TEST</h2>
+  <!--<p>{{ page.excerpt | safe }}</p>
+  <p>The charts below show usage data for the site you're visiting now, <a href="/">Google Analytics Demos & Tools</a>. Notice how you do not have to be logged in to see this data!</p>-->
+</section>
+
+<ul class="FlexGrid">
+  <li class="FlexGrid-item">
+    <div class="Dashboard Dashboard--full">
+      <header class="Titles">
+        <h3 class="Titles-main">Site Traffic</h3>
+        <div class="Titles-sub">Sessions vs. Users - last 15 days</div>
+      </header>
+      <figure id="chart-1-container"></figure>
+    </div>
+  </li>
+  <li class="FlexGrid-item">
+    <div class="Dashboard Dashboard--full">
+      <header class="Titles">
+        <h3 class="Titles-main">Total Views - last 15 days</h3>
+      </header>
+      <div id="chart-2-container">
+        <div class="Titles-sub">Sessions</div>
+      </div>
+      <div id="chart-2-container-1">
+        <div class="Titles-sub">Avg. Session Duration</div>
+      </div>
+      <div id="chart-2-container-2">
+        <div class="Titles-sub">New Users</div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<script>
+  // var pathname = new URL(window.location.href).pathname;
+
+var pathname = '/projects/torchcity/torchcity-the-only-all-in-one-bulb-smart-home-secu?ref=category_newest';
+
+gapi.analytics.ready(function() {
+
+  /**
+   * Authorize the user with an access token obtained server side.
+   */
+  gapi.analytics.auth.authorize({
+    'serverAuth': {
+      {% raw -%}
+      'access_token': '{{ 2ea4e43969f022bf216f61bdd79b1f47e9789382 }}'
+      {%- endraw %}
+    }
+  });
+
+
+  /**
+   * Creates a new DataChart instance showing sessions over the past 30 days.
+   * It will be rendered inside an element with the id "chart-1-container".
+   */
+  var dataChart1 = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      'ids': 'ga:164625064', // <-- Replace with the ids value for your view.
+      'start-date': '2017-11-15',
+      'end-date': '2017-11-29',
+      'filters': 'ga:landingPagePath==' + pathname,
+      'metrics': 'ga:avgSessionDuration,ga:sessions',
+      'dimensions': 'ga:date'
+    },
+    chart: {
+      'container': 'chart-1-container',
+      'type': 'LINE',
+      'options': {
+        'width': '100%'
+      }
+    }
+  });
+  dataChart1.execute();
+
+
+  /**
+   * Creates a new DataChart instance showing top 5 most popular demos/tools
+   * amongst returning users only.
+   * It will be rendered inside an element with the id "chart-3-container".
+   */
+  var dataChart2 = new gapi.analytics.report.Data({
+    query: {
+      'ids': 'ga:164625064', // <-- Replace with the ids value for your view.
+      'start-date': '2017-11-15',
+      'end-date': '2017-11-29',
+      'filters': 'ga:landingPagePath=~newest',
+      'metrics': 'ga:sessions,ga:avgSessionDuration,ga:newUsers',
+    }
+  });
+
+  dataChart2.on('success', function(response) {
+    document.getElementById('chart-2-container').innerHTML = '<p>Sessions<br><h1>' + JSON.parse(response.totalsForAllResults['ga:sessions']) + '</h1>';
+    document.getElementById('chart-2-container-1').innerHTML = '<p>Avg. Session Duration<br><h1>' + JSON.parse(response.totalsForAllResults['ga:avgSessionDuration']) + '</h1>';
+    document.getElementById('chart-2-container-2').innerHTML = '<p>New Users<br><h1>' + JSON.parse(response.totalsForAllResults['ga:newUsers']) + '</h1>';
+  });
+
+  dataChart2.execute();
+
+});
+
+</script>
+</body>
+</html>

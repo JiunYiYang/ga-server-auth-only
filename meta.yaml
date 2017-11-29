@@ -2,8 +2,8 @@ title: Google Analytics Demos & Tools
 host: ga-dev-tools.appspot.com
 slug: ''
 path: '/'
-tracking_id: UA-41425441-5
-tracking_id_testing: UA-41425441-7
+tracking_id: UA-108879919-2
+tracking_id_testing: UA-108879919-2
 client_id: 793177639245-olst43lspv93vkoql0b9l26hmpf9kfmv.apps.googleusercontent.com
 
 
@@ -55,6 +55,10 @@ projects:
     slug: server-side-authorization
     tech: [embed_api, api_client_library_python]
     excerpt: 'This demo shows how you can use server-side authorization to display your Google Analytics data to users without granting them access to your Google Analytics account.'
+  - title: Server-side Authorization
+    slug: server-side-authorizatio
+    tech: [embed_api, api_client_library_python]
+    excerpt: 'This demo shows how you can use server-side authorization to display your Google Analytics data to users without granting them access to your Google Analytics account.'  
 - title: Enhanced Ecommerce
   type: demo
   slug: enhanced-ecommerce

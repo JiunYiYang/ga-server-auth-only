@@ -1,0 +1,22 @@
+# Test environment
+top_srcdir='/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11'
+top_builddir='/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11'
+
+set -a
+COMPARE="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick compare"
+COMPOSITE="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick composite"
+CONJURE="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick conjure"
+CONVERT="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick convert"
+DISPLAY="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick display"
+IDENTIFY="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick identify"
+MAGICK="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick"
+MONTAGE="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities/magick montage"
+VALIDATE="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/tests/validate"
+DRAWTEST="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/tests/drawtest"
+WANDTEST="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/tests/wandtest"
+LD_LIBRARY_PATH="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/magick/.libs:${LD_LIBRARY_PATH}"
+MAGICK_CODER_MODULE_PATH="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/coders"
+MAGICK_CONFIGURE_PATH="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/config:/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/config"
+MAGICK_FILTER_MODULE_PATH="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/filters"
+PATH="/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/utilities:/home/student/SA/ga-dev-tools/ImageMagick-7.0.7-11/tests:${PATH}"
+set +a
