@@ -3,8 +3,6 @@
 Thumbs.db
 .cache
 .idea
-ImageMagick-7.0.7-11/
-GraphicsMagick-1.3.23/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -19,7 +17,8 @@ python_modules
 temp-python
 
 # Built files
-public/
+ImageMagick-7.0.7-11
+GraphicsMagick-1.3.23
 
 # Private keys
 service-account-key.json
